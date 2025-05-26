@@ -71,6 +71,8 @@ video {
 }
 
 button {
+  animation: floatIn 0.8s ease-out 0.5s forwards, pulse 2s infinite 1.5s;
+  opacity: 0;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   font-size: 1.2rem;
@@ -93,6 +95,7 @@ button:hover {
   }
 
   button {
+    animation: floatIn 0.8s ease-out 0.5s forwards, pulse 2.5s infinite 1.5s;
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
@@ -130,4 +133,42 @@ button:hover {
   height: 100%;
   pointer-events: none;
   z-index: 999;
+}
+
+.button-wrapper {
+  margin-top: 800px; /* default for desktop – lower on screen */
+  z-index: 2;
+}
+
+/* On mobile, move the button up closer to the arch */
+@media (max-width: 600px) {
+  .button-wrapper {
+    margin-top: 150px;
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 64, 129, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+  }
 }
