@@ -5,6 +5,7 @@ document.getElementById('blowButton').addEventListener('click', function () {
   video.loop = false;
   video.load();
   video.play();
-  this.disabled = true;
-  this.textContent = "🎈 Make a Wish!";
+
+  // Hide the button after it's clicked
+  this.style.display = 'none';
 });

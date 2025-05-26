@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>La mulți ani!</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,11 +12,23 @@
       <source src="cake-lit.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+
     <div class="overlay">
-      <h1>🎉 Dragă soră puricoasă, la multi ani! 🎂</h1>
+      <svg class="arched-text" viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <path id="curve" d="M20,80 A130,130 0 0,1 280,80" />
+        </defs>
+        <text width="300">
+          <textPath href="#curve" startOffset="50%" text-anchor="middle" fill="#ffc0cb">
+            🎉 Dragă soră puricoasă, la mulți ani! 🎂
+          </textPath>
+        </text>
+      </svg>
+
       <button id="blowButton">Suflă în lumânări!</button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
