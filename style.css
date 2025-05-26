@@ -13,22 +13,6 @@ html, body {
   height: 100vh;
 }
 
-.overlay {
-  padding-top: env(safe-area-inset-top, 2rem); /* adds padding for iOS notch/address bar */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.3);
-}
-
 #videoWrapper {
   position: fixed;
   top: 0;
@@ -54,12 +38,28 @@ video {
   z-index: 0;
 }
 
+.overlay {
+  padding-top: env(safe-area-inset-top, 2rem); /* adds padding for iOS notch/address bar */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .arched-text {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px; /* match the SVG viewBox height */
+  height: 400px;
   pointer-events: none;
   z-index: 2;
 }
@@ -70,9 +70,17 @@ video {
   text-shadow: 1px 1px 2px black;
 }
 
-button {
-  animation: floatIn 0.8s ease-out 0.5s forwards, pulse 2s infinite 1.5s;
+.button-wrapper {
+  margin-top: 300px;
+  z-index: 2;
+}
+
+#blowButton {
+  animation: floatIn 1s ease-out 0.5s forwards, pulse 2s infinite 1.5s;
   opacity: 0;
+}
+
+#giftButton {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   font-size: 1.2rem;
@@ -85,20 +93,20 @@ button {
   z-index: 2;
 }
 
-button:hover {
-  background-color: #e91e63;
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-@media (max-width: 600px) {
-  .arched-text text {
-    font-size: 1rem;
-  }
-
-  button {
-    animation: floatIn 0.8s ease-out 0.5s forwards, pulse 2.5s infinite 1.5s;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
+button:hover {
+  background-color: #e91e63;
 }
 
 .reveal-overlay {
@@ -135,15 +143,18 @@ button:hover {
   z-index: 999;
 }
 
-.button-wrapper {
-  margin-top: 800px; /* default for desktop – lower on screen */
-  z-index: 2;
-}
-
-/* On mobile, move the button up closer to the arch */
 @media (max-width: 600px) {
+  .arched-text text {
+    font-size: 1.5rem;
+  }
+
   .button-wrapper {
-    margin-top: 150px;
+    margin-top: -500px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
