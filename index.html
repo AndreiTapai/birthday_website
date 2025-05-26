@@ -8,10 +8,12 @@
 </head>
 <body>
   <div class="container">
-    <video id="cakeVideo" autoplay loop muted playsinline>
-      <source src="cake-lit.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div id="videoWrapper">
+      <video id="cakeVideo" autoplay loop muted playsinline>
+        <source src="cake-lit.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     <div class="overlay">
       <svg id="birthdayArch" class="arched-text" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
@@ -25,7 +27,13 @@
         </text>
       </svg>
       <button id="blowButton">Suflă în lumânări!</button>
+      <button id="giftButton" style="display: none;">Deschide-ți cadoul!</button>
     </div>
+  </div>
+
+  <div id="revealOverlay" class="reveal-overlay">
+    <img id="giftImage" src="untold_2025.jpg" alt="Surprise Gift" />
+    <canvas id="fireworksCanvas"></canvas>
   </div>
 
   <script src="script.js"></script>
