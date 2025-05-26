@@ -6,6 +6,9 @@ document.getElementById('blowButton').addEventListener('click', function () {
   video.load();
   video.play();
 
-  // Hide the button after it's clicked
+  // Hide the button
   this.style.display = 'none';
+
+  // Hide the arched text
+  document.getElementById('birthdayArch').style.display = 'none';
 });

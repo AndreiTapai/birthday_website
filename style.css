@@ -13,20 +13,12 @@ html, body {
   height: 100vh;
 }
 
-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}
-
 .overlay {
+  padding-top: env(safe-area-inset-top, 2rem); /* adds padding for iOS notch/address bar */
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   padding: 1rem;
@@ -37,18 +29,29 @@ video {
   background: rgba(0, 0, 0, 0.3);
 }
 
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: black; /* fills any letterboxing */
+  z-index: 0;
+}
+
 .arched-text {
   position: absolute;
-  top: 2vh;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 400px; /* match the SVG viewBox height */
   pointer-events: none;
   z-index: 2;
 }
 
 .arched-text text {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
